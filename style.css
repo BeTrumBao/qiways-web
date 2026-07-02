@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap');
+
+:root {
+    --md-sys-color-primary: #000000;
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-surface: #ffffff;
+    --md-sys-color-on-surface: #1c1b1f;
+    --md-sys-color-surface-variant: #f4f4f5;
+    --md-sys-color-on-surface-variant: #49454f;
+    --md-sys-color-outline: #79747e;
+    --md-sys-color-outline-variant: #c4c7c5;
+    
+    --md-sys-typescale-display-large: 600 57px/64px 'Inter', sans-serif;
+    --md-sys-typescale-headline-large: 600 32px/40px 'Inter', sans-serif;
+    --md-sys-typescale-title-large: 500 22px/28px 'Inter', sans-serif;
+    --md-sys-typescale-body-large: 400 16px/24px 'Inter', sans-serif;
+    --md-sys-typescale-body-medium: 400 14px/20px 'Inter', sans-serif;
+    
+    --md-sys-shape-corner-extra-large: 28px;
+    --md-sys-shape-corner-large: 16px;
+    --md-sys-shape-corner-medium: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* App Bar */
+.md3-app-bar {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: var(--md-sys-color-on-surface);
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.5);
+    position: sticky;
+    top: 24px;
+    z-index: 10;
+    width: max-content;
+    margin: 24px;
+    border-radius: 100px;
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid #000000;
+}
+
+.md3-app-bar-title {
+    font: var(--md-sys-typescale-title-large);
+    font-size: 18px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+}
+
+.md3-nav-links {
+    display: flex;
+    gap: 16px;
+}
+
+.md3-nav-link {
+    text-decoration: none;
+    color: var(--md-sys-color-on-surface-variant);
+    font: var(--md-sys-typescale-body-medium);
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.md3-nav-link:hover {
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface);
+}
+
+.md3-nav-link.active {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 24px;
+    width: 100%;
+}
+
+.page-header {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.page-title {
+    font: var(--md-sys-typescale-headline-large);
+    margin-bottom: 12px;
+}
+
+.page-subtitle {
+    font: var(--md-sys-typescale-body-large);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Cards */
+.md3-card {
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--md-sys-shape-corner-extra-large);
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.md3-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+    transform: translateY(-2px);
+}
+
+.md3-card-title {
+    font: var(--md-sys-typescale-title-large);
+    margin-bottom: 16px;
+    color: var(--md-sys-color-primary);
+    border-bottom: 2px solid var(--md-sys-color-surface-variant);
+    padding-bottom: 12px;
+}
+
+.md3-card-content {
+    font: var(--md-sys-typescale-body-large);
+}
+
+.md3-card-content p {
+    margin-bottom: 16px;
+}
+
+/* Lists */
+.md3-list {
+    list-style: none;
+}
+
+.md3-list-item {
+    padding: 16px;
+    border-radius: var(--md-sys-shape-corner-large);
+    background-color: var(--md-sys-color-surface-variant);
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.md3-list-item-headline {
+    font: var(--md-sys-typescale-body-large);
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface);
+}
+
+.md3-list-item-supporting-text {
+    font: var(--md-sys-typescale-body-medium);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Badges / Chips */
+.md3-chip {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    font: var(--md-sys-typescale-body-medium);
+    font-weight: 500;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* Footer */
+.md3-footer {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: var(--md-sys-color-on-surface-variant);
+    text-align: center;
+    padding: 12px 32px;
+    font: var(--md-sys-typescale-body-medium);
+    border-radius: 100px;
+    width: max-content;
+    max-width: 90%;
+    margin: 40px auto 24px auto;
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid #000000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Simple Hero Section */
+.simple-hero {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 40px 24px;
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--md-sys-shape-corner-extra-large);
+    border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+/* News List */
+.news-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.news-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card-date {
+    color: var(--md-sys-color-outline);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.news-chips {
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .main-content {
+        margin: 20px auto;
+        padding: 0 16px;
+    }
+
+    .md3-card {
+        padding: 16px;
+        border-radius: var(--md-sys-shape-corner-large);
+        margin-bottom: 16px;
+    }
+    
+    .md3-app-bar {
+        padding: 6px 16px;
+        top: 16px;
+        margin: 16px;
+    }
+
+    .page-title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
