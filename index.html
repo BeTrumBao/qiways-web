@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Trang tin tức và thông báo của ứng dụng QiWays">
-    <title>Trang chủ - QiWays</title>
+    <title>QiWays</title>
     <link rel="icon" href="logo.png?v=2" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <script src="lang.js"></script>
 </head>
 <body>
     <header class="md3-app-bar">
@@ -14,22 +15,37 @@
             <img src="favicon.svg" alt="QiWays Logo" style="height: 24px; width: 24px; margin-right: 8px; vertical-align: middle; border-radius: 6px;">
             QiWays
         </div>
+        <button class="lang-switcher" onclick="toggleLang()">EN / VI</button>
     </header>
 
     <main class="main-content" style="max-width: 900px;">
         <div class="simple-hero">
-            <h1 class="page-title">Tin tức</h1>
+            <h1 class="page-title">QiWays</h1>
+            <p class="lang-vi" style="font-size: 1.1rem; color: var(--md-sys-color-on-surface-variant); margin-top: 12px; line-height: 1.6;">
+                QiWays là ứng dụng giải trí giúp người dùng xem video YouTube hoàn toàn không có quảng cáo, hỗ trợ phát nhạc dưới nền và xem video dưới dạng cửa sổ nổi (Picture-in-Picture). Để mang lại trải nghiệm xem video mượt mà và trọn vẹn, QiWays cần người dùng cấp một số quyền cơ bản (như hiển thị trên ứng dụng khác, gửi thông báo, hoặc truy cập bộ nhớ) nhằm đảm bảo các tính năng hoạt động ổn định nhất.
+            </p>
+            <p class="lang-en" style="font-size: 1.1rem; color: var(--md-sys-color-on-surface-variant); margin-top: 12px; line-height: 1.6;">
+                QiWays is an entertainment app that allows users to watch YouTube videos completely ad-free, supporting background music playback and Picture-in-Picture mode. To provide a smooth and complete viewing experience, QiWays requires users to grant certain basic permissions (such as displaying over other apps, sending notifications, or accessing storage) to ensure all features function optimally.
+            </p>
         </div>
 
         <div class="news-grid">
             <article class="md3-card news-card">
-                <span class="news-card-date">2 Tháng 7, 2026</span>
-                <h2 class="md3-card-title" style="border-bottom: none; padding-bottom: 0; margin-bottom: 8px; color: var(--md-sys-color-on-surface);">Chào mừng đến với Hệ thống Tin tức QiWays</h2>
+                <span class="news-card-date lang-vi">2 Tháng 7, 2026</span>
+                <span class="news-card-date lang-en">July 2, 2026</span>
+                
+                <h2 class="md3-card-title lang-vi" style="border-bottom: none; padding-bottom: 0; margin-bottom: 8px; color: var(--md-sys-color-on-surface);">Chào mừng đến với Hệ thống Tin tức QiWays</h2>
+                <h2 class="md3-card-title lang-en" style="border-bottom: none; padding-bottom: 0; margin-bottom: 8px; color: var(--md-sys-color-on-surface);">Welcome to QiWays News System</h2>
+                
                 <div class="md3-card-content" style="display: flex; flex-direction: column; flex: 1;">
-                    <p>Chào mừng bạn đến với trung tâm tin tức và thông báo mới nhất của QiWays! Đây sẽ là nơi cập nhật liên tục mọi thông tin về tính năng mới, hướng dẫn sử dụng, và các thông báo quan trọng nhất từ đội ngũ phát triển. Hãy thường xuyên ghé thăm để không bỏ lỡ bất kỳ điều thú vị nào nhé!</p>
+                    <p class="lang-vi">Chào mừng bạn đến với trung tâm tin tức và thông báo mới nhất của QiWays! Đây sẽ là nơi cập nhật liên tục mọi thông tin về tính năng mới, hướng dẫn sử dụng, và các thông báo quan trọng nhất từ đội ngũ phát triển. Hãy thường xuyên ghé thăm để không bỏ lỡ bất kỳ điều thú vị nào nhé!</p>
+                    <p class="lang-en">Welcome to the latest news and announcement center of QiWays! This is where we continuously update information on new features, user guides, and the most important announcements from the development team. Visit often so you don't miss out on anything exciting!</p>
+                    
                     <div class="news-chips">
-                        <span class="md3-chip">Chào mừng</span>
-                        <span class="md3-chip">Thông báo</span>
+                        <span class="md3-chip lang-vi">Chào mừng</span>
+                        <span class="md3-chip lang-vi">Thông báo</span>
+                        <span class="md3-chip lang-en">Welcome</span>
+                        <span class="md3-chip lang-en">Announcement</span>
                     </div>
                 </div>
             </article>
