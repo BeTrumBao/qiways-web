@@ -1,21 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
     --md-sys-color-primary: #000000;
     --md-sys-color-on-primary: #ffffff;
     --md-sys-color-surface: #ffffff;
-    --md-sys-color-on-surface: #1c1b1f;
-    --md-sys-color-surface-variant: #f4f4f5;
-    --md-sys-color-on-surface-variant: #49454f;
-    --md-sys-color-outline: #79747e;
-    --md-sys-color-outline-variant: #c4c7c5;
+    --md-sys-color-on-surface: #0f172a;
+    --md-sys-color-surface-variant: #f8fafc;
+    --md-sys-color-on-surface-variant: #475569;
+    --md-sys-color-outline: #64748b;
+    --md-sys-color-outline-variant: #e2e8f0;
     
-    --md-sys-typescale-display-large: 600 57px/64px 'Inter', sans-serif;
-    --md-sys-typescale-headline-large: 600 32px/40px 'Inter', sans-serif;
-    --md-sys-typescale-title-large: 500 22px/28px 'Inter', sans-serif;
-    --md-sys-typescale-body-large: 400 16px/24px 'Inter', sans-serif;
-    --md-sys-typescale-body-medium: 400 14px/20px 'Inter', sans-serif;
+    --md-sys-typescale-display-large: 700 57px/64px 'Outfit', 'Inter', sans-serif;
+    --md-sys-typescale-headline-large: 700 32px/40px 'Outfit', 'Inter', sans-serif;
+    --md-sys-typescale-title-large: 700 22px/28px 'Outfit', 'Inter', sans-serif;
+    --md-sys-typescale-body-large: 400 15px/26px 'Outfit', 'Inter', sans-serif;
+    --md-sys-typescale-body-medium: 400 14px/22px 'Outfit', 'Inter', sans-serif;
     
     --md-sys-shape-corner-extra-large: 28px;
     --md-sys-shape-corner-large: 16px;
@@ -29,10 +28,10 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--md-sys-color-surface-variant);
-    color: var(--md-sys-color-on-surface);
-    line-height: 1.5;
+    color: #334155;
+    line-height: 1.65;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -106,6 +105,9 @@ body {
 
 .page-title {
     font: var(--md-sys-typescale-headline-large);
+    font-family: 'Outfit', 'Inter', sans-serif;
+    letter-spacing: -0.5px;
+    color: #0f172a;
     margin-bottom: 12px;
 }
 
@@ -132,17 +134,23 @@ body {
 
 .md3-card-title {
     font: var(--md-sys-typescale-title-large);
+    font-family: 'Outfit', 'Inter', sans-serif;
+    letter-spacing: -0.3px;
     margin-bottom: 16px;
-    color: var(--md-sys-color-primary);
+    color: #0f172a;
     border-bottom: 2px solid var(--md-sys-color-surface-variant);
     padding-bottom: 12px;
 }
 
 .md3-card-content {
     font: var(--md-sys-typescale-body-large);
+    color: #334155;
 }
 
 .md3-card-content p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #334155;
     margin-bottom: 16px;
 }
 
@@ -202,14 +210,234 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
-/* Simple Hero Section */
+/* News Card Banner (1280x720 - 16:9) */
+.news-card-banner, .banner-container {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: var(--md-sys-shape-corner-large);
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    background-color: var(--md-sys-color-surface);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card-banner:hover, .banner-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.banner-link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    line-height: 0;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.news-card-banner:hover .banner-img {
+    transform: scale(1.015);
+}
+
+/* Simple Hero Section - Bố cục ngang hiện đại (Horizontal Layout) */
 .simple-hero {
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
     margin-bottom: 48px;
-    padding: 40px 24px;
+    padding: 38px 40px;
     background-color: var(--md-sys-color-surface);
     border-radius: var(--md-sys-shape-corner-extra-large);
     border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cột bên trái: Logo */
+.hero-left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.hero-logo {
+    display: block;
+    margin: 0;
+    width: 104px;
+    height: 104px;
+    border-radius: 26px;
+    box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.hero-logo:hover {
+    transform: rotate(4deg) scale(1.06);
+    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.18);
+}
+
+/* Cột bên phải: Tiêu đề, Mô tả và Nút Tải */
+.hero-right-col {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-header-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.hero-header-row .page-title {
+    margin: 0;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.hero-version-tag {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(15, 23, 42, 0.07);
+    color: #0f172a;
+    padding: 3px 9px;
+    border-radius: 8px;
+    letter-spacing: 0.4px;
+}
+
+.hero-desc {
+    font-size: 15px;
+    color: #475569;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    line-height: 1.65;
+}
+
+/* Hero Download Button */
+.hero-action-container {
+    margin-top: 4px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.hero-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 28px 12px 18px;
+    background: #0f172a;
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 100px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.hero-download-btn:hover {
+    background: #1e293b;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.22);
+}
+
+.hero-download-btn:active {
+    transform: translateY(0) scale(0.99);
+}
+
+.download-icon-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.download-svg {
+    display: block;
+}
+
+.download-btn-content {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.download-btn-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    color: #ffffff;
+}
+
+.download-btn-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 400;
+}
+
+/* Dòng note ở góc cuối bảng giới thiệu */
+.hero-network-note {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.55;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    opacity: 0.85;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 720px) {
+    .simple-hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 32px 20px;
+    }
+    
+    .hero-header-row {
+        justify-content: center;
+    }
+    
+    .hero-action-container {
+        justify-content: center;
+    }
+    
+    .hero-download-btn {
+        width: 100%;
+        max-width: 340px;
+        padding: 12px 18px;
+    }
+
+    .hero-network-note {
+        text-align: center;
+        margin-top: 12px;
+    }
 }
 
 /* News List */
@@ -227,17 +455,257 @@ body {
 }
 
 .news-card-date {
-    color: var(--md-sys-color-outline);
-    font-size: 13px;
-    font-weight: 500;
-    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.05);
+    color: #64748b;
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
     margin-bottom: 12px;
-    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    width: fit-content;
 }
 
 .news-chips {
     margin-top: auto;
-    padding-top: 24px;
+    padding-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Clickable News Cards */
+.clickable-card {
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.clickable-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.card-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.read-more-btn {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0f172a;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background-color: var(--md-sys-color-surface-variant);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.clickable-card:hover .read-more-btn {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    transform: translateX(4px);
+}
+
+
+/* News Detail Modal - Premium Glassmorphism Design */
+.news-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+.news-modal-overlay.active {
+    display: flex;
+    animation: modalFadeIn 0.25s ease forwards;
+}
+
+.news-modal-container {
+    background-color: var(--md-sys-color-surface);
+    border-radius: 28px;
+    max-width: 720px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 36px 32px;
+    position: relative;
+    box-shadow: 0 32px 72px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    animation: modalScaleUp 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom Scrollbar cho Modal */
+.news-modal-container::-webkit-scrollbar {
+    width: 6px;
+}
+.news-modal-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.news-modal-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+}
+.news-modal-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Nút Đóng Modal kính mờ Frosted Glass */
+.news-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #1e293b;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.news-modal-close:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transform: rotate(90deg) scale(1.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Banner bên trong Modal */
+.news-modal-body .news-card-banner {
+    margin-bottom: 24px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transform: none !important;
+}
+
+.news-modal-body .news-card-banner:hover {
+    transform: none !important;
+    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Badge Ngày tháng trong Modal */
+.news-modal-body .news-card-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.05);
+    color: #64748b;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Tiêu đề trong Modal */
+.news-modal-body .md3-card-title {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    color: #0f172a;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--md-sys-color-surface-variant);
+}
+
+/* Nội dung bài viết trong Modal */
+.news-modal-body .md3-card-content p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #334155;
+    margin-bottom: 12px;
+}
+
+/* Hộp Lưu ý (Callout Box) sang trọng */
+.modal-callout-box {
+    margin-top: 18px !important;
+    margin-bottom: 18px !important;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(241, 245, 249, 0.85) 0%, rgba(248, 250, 252, 0.95) 100%);
+    border-left: 4px solid var(--md-sys-color-primary) !important;
+    border-radius: 16px;
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+    color: #1e293b !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-left-width: 4px;
+}
+
+/* Link pill buttons trong Modal */
+.modal-action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 14px;
+    background: rgba(0, 0, 0, 0.05);
+    color: #0f172a;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+}
+
+.modal-action-link:hover {
+    background: #0f172a;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalScaleUp {
+    from { 
+        transform: scale(0.93) translateY(10px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1) translateY(0); 
+        opacity: 1; 
+    }
 }
 
 /* Responsive */
@@ -263,4 +731,60 @@ body {
         font-size: 28px;
         line-height: 36px;
     }
+}
+
+/* Multi-language Support */
+html[lang="en"] .lang-vi { display: none !important; }
+html[lang="vi"] .lang-en { display: none !important; }
+html:not([lang="en"]) .lang-en { display: none !important; }
+
+/* Language Switcher Button */
+.lang-switcher {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    margin-left: 16px;
+    transition: transform 0.2s;
+}
+.lang-switcher:hover {
+    transform: scale(1.05);
+}
+
+/* Nút Back quay lại popup tin tức - cố định góc trái dưới */
+.back-to-popup-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 999;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 24px;
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border-radius: 100px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    animation: backBtnSlideIn 0.4s ease-out;
+}
+@keyframes backBtnSlideIn {
+    from { transform: translateY(60px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.back-to-popup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+.back-to-popup-btn:active {
+    transform: scale(0.97);
 }

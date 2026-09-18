@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="QHeddSswwnkm6gVypg12RsIu9RJQ4TZTlCa7XQ66T4U" />
     <meta name="description" content="Trang tin tức và thông báo của ứng dụng QiWays">
     <title>QiWays</title>
     <link rel="icon" href="logo.png?v=2" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <script src="lang.js"></script>
 </head>
 <body>
     <header class="md3-app-bar">
@@ -14,34 +16,296 @@
             <img src="favicon.svg" alt="QiWays Logo" style="height: 24px; width: 24px; margin-right: 8px; vertical-align: middle; border-radius: 6px;">
             QiWays
         </div>
+        <button class="lang-switcher" onclick="toggleLang()">EN / VI</button>
     </header>
 
-    <main class="main-content" style="max-width: 900px;">
+    <main class="main-content" style="max-width: 980px;">
+        <!-- Phần Giới thiệu Ứng dụng & Logo (Bố cục ngang) -->
         <div class="simple-hero">
-            <h1 class="page-title">QiWays</h1>
-            <p style="font-size: 1.1rem; color: var(--md-sys-color-on-surface-variant); margin-top: 12px; line-height: 1.6;">
-                QiWays là ứng dụng hỗ trợ quản lý và kết nối thông tin tiện ích. Mục đích của ứng dụng là mang đến một nền tảng tối ưu để người dùng trải nghiệm nội dung an toàn và mượt mà. QiWays cần người dùng cấp quyền truy cập để đồng bộ hóa dữ liệu, cá nhân hóa trải nghiệm và đảm bảo các tính năng cốt lõi hoạt động tốt nhất.
-            </p>
+            <div class="hero-left-col">
+                <img src="favicon.svg" alt="QiWays Logo" class="hero-logo">
+            </div>
+
+            <div class="hero-right-col">
+                <div class="hero-header-row">
+                    <h1 class="page-title">QiWays</h1>
+                    <span class="hero-version-tag">v2026.1.21.1</span>
+                </div>
+                
+                <p class="lang-vi hero-desc">
+                    QiWays là ứng dụng giải trí giúp người dùng xem video YouTube hoàn toàn không có quảng cáo, hỗ trợ phát nhạc dưới nền và xem video dưới dạng cửa sổ nổi (Picture-in-Picture). Để mang lại trải nghiệm xem video mượt mà và trọn vẹn, QiWays cần người dùng cấp một số quyền cơ bản (như hiển thị trên ứng dụng khác, gửi thông báo, hoặc truy cập bộ nhớ) nhằm đảm bảo các tính năng hoạt động ổn định nhất.
+                </p>
+                <p class="lang-en hero-desc">
+                    QiWays is an entertainment app that allows users to watch YouTube videos completely ad-free, supporting background music playback and Picture-in-Picture mode. To provide a smooth and complete viewing experience, QiWays requires users to grant certain basic permissions (such as displaying over other apps, sending notifications, or accessing storage) to ensure all features function optimally.
+                </p>
+
+                <!-- Nút Tải Ứng Dụng QiWays -->
+                <div class="hero-action-container">
+                    <a href="https://emqizi.pythonanywhere.com/gateway_secure_dl_x9/YXBwLXJlbGVhc2UtdjIyLmFwaw==" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="hero-download-btn"
+                       title="Tải ứng dụng QiWays">
+                        <div class="download-icon-circle">
+                            <svg class="download-svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </div>
+                        <div class="download-btn-content">
+                            <div class="download-btn-title">
+                                <span class="lang-vi">Tải ứng dụng QiWays</span>
+                                <span class="lang-en">Download QiWays App</span>
+                            </div>
+                            <div class="download-btn-meta">
+                                <span class="lang-vi">Phiên bản 2026.1.21.1</span>
+                                <span class="lang-en">Version 2026.1.21.1</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Dòng note ở góc cuối bảng -->
+                <p class="hero-network-note lang-vi">
+                    ⏳ Tốc độ tải có thể nhanh chậm tùy thuộc vào thời gian và tốc độ mạng của bạn. Nếu bạn tải quá lâu, hãy thử lại sau một vài giờ.
+                </p>
+                <p class="hero-network-note lang-en">
+                    ⏳ Download speed may vary depending on time and your network connection. If it takes too long, please try again after a few hours.
+                </p>
+            </div>
         </div>
 
+        <!-- Danh sách Card Tin tức -->
         <div class="news-grid">
-            <article class="md3-card news-card">
-                <span class="news-card-date">2 Tháng 7, 2026</span>
-                <h2 class="md3-card-title" style="border-bottom: none; padding-bottom: 0; margin-bottom: 8px; color: var(--md-sys-color-on-surface);">Chào mừng đến với Hệ thống Tin tức QiWays</h2>
+            <!-- Card 1: Bản tin Cập nhật Chính sách -->
+            <article class="md3-card news-card clickable-card" onclick="openNewsModal('news-detail-1')" tabindex="0" role="button" aria-label="Xem chi tiết: Cập nhật Chính sách & Điều khoản Dịch vụ">
+                <div class="news-card-banner">
+                    <img src="BANNER-qw-02.png" alt="QiWays Banner 1280x720" class="banner-img" width="1280" height="720">
+                </div>
+
+                <span class="news-card-date lang-vi">18 Tháng 9, 2026</span>
+                <span class="news-card-date lang-en">September 18, 2026</span>
+                
+                <h2 class="md3-card-title lang-vi" style="border-bottom: none; padding-bottom: 0; margin-bottom: 8px; color: var(--md-sys-color-on-surface);">Cập nhật Chính sách & Điều khoản Dịch vụ</h2>
+                <h2 class="md3-card-title lang-en" style="border-bottom: none; padding-bottom: 0; margin-bottom: 8px; color: var(--md-sys-color-on-surface);">Terms of Service & Privacy Policy Update</h2>
+                
                 <div class="md3-card-content" style="display: flex; flex-direction: column; flex: 1;">
-                    <p>Chào mừng bạn đến với trung tâm tin tức và thông báo mới nhất của QiWays! Đây sẽ là nơi cập nhật liên tục mọi thông tin về tính năng mới, hướng dẫn sử dụng, và các thông báo quan trọng nhất từ đội ngũ phát triển. Hãy thường xuyên ghé thăm để không bỏ lỡ bất kỳ điều thú vị nào nhé!</p>
-                    <div class="news-chips">
-                        <span class="md3-chip">Chào mừng</span>
-                        <span class="md3-chip">Thông báo</span>
+                    <p class="lang-vi">Nhằm phục vụ người dùng tốt hơn và bảo đảm tính minh bạch, QiWays vừa cập nhật lại Chính sách Quyền riêng tư và Điều khoản Sử dụng (phiên bản Tháng 9/2026)...</p>
+                    <p class="lang-en">To better serve our community and ensure clarity, QiWays has updated our Privacy Policy and Terms of Service (September 2026 edition)...</p>
+                    
+                    <div class="card-footer-row">
+                        <div class="news-chips" style="padding-top: 0;">
+                            <span class="md3-chip lang-vi">Thông báo</span>
+                            <span class="md3-chip lang-vi">Chính sách</span>
+                            <span class="md3-chip lang-en">Notice</span>
+                            <span class="md3-chip lang-en">Policy</span>
+                        </div>
+                        <span class="read-more-btn lang-vi">Xem chi tiết &rarr;</span>
+                        <span class="read-more-btn lang-en">Read more &rarr;</span>
                     </div>
                 </div>
             </article>
 
+            <!-- Card 2: Bản tin Chào mừng -->
+            <article class="md3-card news-card clickable-card" onclick="openNewsModal('news-detail-2')" tabindex="0" role="button" aria-label="Xem chi tiết: Chào mừng đến với Hệ thống Tin tức QiWays">
+                <span class="news-card-date lang-vi">2 Tháng 7, 2026</span>
+                <span class="news-card-date lang-en">July 2, 2026</span>
+                
+                <h2 class="md3-card-title lang-vi" style="border-bottom: none; padding-bottom: 0; margin-bottom: 8px; color: var(--md-sys-color-on-surface);">Chào mừng đến với Hệ thống Tin tức QiWays</h2>
+                <h2 class="md3-card-title lang-en" style="border-bottom: none; padding-bottom: 0; margin-bottom: 8px; color: var(--md-sys-color-on-surface);">Welcome to QiWays News System</h2>
+                
+                <div class="md3-card-content" style="display: flex; flex-direction: column; flex: 1;">
+                    <p class="lang-vi">Chào mừng bạn đến với trung tâm tin tức và thông báo mới nhất của QiWays! Đây sẽ là nơi cập nhật liên tục mọi thông tin về tính năng mới, hướng dẫn sử dụng...</p>
+                    <p class="lang-en">Welcome to the latest news and announcement center of QiWays! This is where we continuously update information on new features, user guides...</p>
+                    
+                    <div class="card-footer-row">
+                        <div class="news-chips" style="padding-top: 0;">
+                            <span class="md3-chip lang-vi">Chào mừng</span>
+                            <span class="md3-chip lang-vi">Thông báo</span>
+                            <span class="md3-chip lang-en">Welcome</span>
+                            <span class="md3-chip lang-en">Announcement</span>
+                        </div>
+                        <span class="read-more-btn lang-vi">Xem chi tiết &rarr;</span>
+                        <span class="read-more-btn lang-en">Read more &rarr;</span>
+                    </div>
+                </div>
+            </article>
         </div>
     </main>
 
+    <!-- Dữ liệu chi tiết cho Modal (Ẩn) -->
+    <div id="news-detail-1" style="display: none;">
+        <div class="news-card-banner">
+            <img src="BANNER-qw-02.png" alt="QiWays Banner 1280x720" class="banner-img" width="1280" height="720">
+        </div>
+        <span class="news-card-date lang-vi">18 Tháng 9, 2026</span>
+        <span class="news-card-date lang-en">September 18, 2026</span>
+        <h2 class="md3-card-title lang-vi">Cập nhật Chính sách & Điều khoản Dịch vụ</h2>
+        <h2 class="md3-card-title lang-en">Terms of Service & Privacy Policy Update</h2>
+        <div class="md3-card-content">
+            <p class="lang-vi">Nhằm phục vụ người dùng tốt hơn và bảo đảm tính minh bạch, QiWays vừa cập nhật lại Chính sách Quyền riêng tư và Điều khoản Sử dụng (phiên bản Tháng 9/2026).</p>
+            <p class="lang-vi">Các điều chỉnh này giúp làm rõ các quy định sử dụng và củng cố cam kết bảo vệ dữ liệu cá nhân cho bạn trong suốt quá trình trải nghiệm ứng dụng.</p>
+            <div class="lang-vi" style="margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+                <span style="font-weight: 500; color: #475569;">👉 Xem chi tiết tại:</span> 
+                <a href="privacy.html?from=popup" class="modal-action-link">🛡️ Chính sách Bảo mật</a> 
+                <a href="terms.html?from=popup" class="modal-action-link">📜 Điều khoản Sử dụng</a>
+            </div>
+            <div class="lang-vi modal-callout-box">
+                💡 <strong>Lưu ý:</strong> Hiện tại bạn không cần phải làm gì cả. Tuy nhiên, chúng tôi khuyến khích bạn dành ít phút đọc qua để nắm rõ quyền lợi và cách QiWays bảo vệ trải nghiệm của bạn.
+            </div>
+
+            <p class="lang-en">To better serve our community and ensure clarity, QiWays has updated our Privacy Policy and Terms of Service (September 2026 edition).</p>
+            <p class="lang-en">These adjustments clarify service guidelines and reaffirm our commitment to protecting your personal data while using the application.</p>
+            <div class="lang-en" style="margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+                <span style="font-weight: 500; color: #475569;">👉 View details at:</span> 
+                <a href="privacy.html?from=popup" class="modal-action-link">🛡️ Privacy Policy</a> 
+                <a href="terms.html?from=popup" class="modal-action-link">📜 Terms of Service</a>
+            </div>
+            <div class="lang-en modal-callout-box">
+                💡 <strong>Note:</strong> Currently, no action is required on your part. However, we encourage you to take a few moments to review these documents to better understand your rights and how QiWays protects your experience.
+            </div>
+
+            <div class="news-chips" style="margin-top: 20px;">
+                <span class="md3-chip lang-vi">Thông báo</span>
+                <span class="md3-chip lang-vi">Chính sách</span>
+                <span class="md3-chip lang-en">Notice</span>
+                <span class="md3-chip lang-en">Policy</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="news-detail-2" style="display: none;">
+        <span class="news-card-date lang-vi">2 Tháng 7, 2026</span>
+        <span class="news-card-date lang-en">July 2, 2026</span>
+        <h2 class="md3-card-title lang-vi">Chào mừng đến với Hệ thống Tin tức QiWays</h2>
+        <h2 class="md3-card-title lang-en">Welcome to QiWays News System</h2>
+        <div class="md3-card-content">
+            <p class="lang-vi">Chào mừng bạn đến với trung tâm tin tức và thông báo mới nhất của QiWays! Đây sẽ là nơi cập nhật liên tục mọi thông tin về tính năng mới, hướng dẫn sử dụng, và các thông báo quan trọng nhất từ đội ngũ phát triển. Hãy thường xuyên ghé thăm để không bỏ lỡ bất kỳ điều thú vị nào nhé!</p>
+            <p class="lang-en">Welcome to the latest news and announcement center of QiWays! This is where we continuously update information on new features, user guides, and the most important announcements from the development team. Visit often so you don't miss out on anything exciting!</p>
+            
+            <div class="news-chips" style="margin-top: 20px;">
+                <span class="md3-chip lang-vi">Chào mừng</span>
+                <span class="md3-chip lang-vi">Thông báo</span>
+                <span class="md3-chip lang-en">Welcome</span>
+                <span class="md3-chip lang-en">Announcement</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Chi tiết Tin tức -->
+    <div id="news-modal" class="news-modal-overlay" onclick="handleModalBackdropClick(event)">
+        <div class="news-modal-container">
+            <button class="news-modal-close" onclick="closeNewsModal()" aria-label="Đóng">&times;</button>
+            <div id="news-modal-body" class="news-modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mở Modal xem chi tiết tin tức
+        function openNewsModal(detailId, updateUrl = true) {
+            const detailElem = document.getElementById(detailId);
+            const modalBody = document.getElementById('news-modal-body');
+            const modal = document.getElementById('news-modal');
+            if (detailElem && modalBody && modal) {
+                modalBody.innerHTML = detailElem.innerHTML;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                if (updateUrl) {
+                    // Cập nhật URL đúng chuẩn hậu tố: ?id=...&openPopup=true
+                    const cleanId = detailId.replace('news-detail-', '');
+                    history.replaceState(null, '', '?id=' + cleanId + '&openPopup=true');
+                }
+            }
+        }
+
+        // Đóng Modal
+        function closeNewsModal() {
+            const modal = document.getElementById('news-modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                // Xóa tham số trên thanh địa chỉ khi đóng modal
+                if (window.location.search || window.location.hash) {
+                    history.replaceState(null, '', window.location.pathname);
+                }
+            }
+        }
+
+        function handleModalBackdropClick(event) {
+            if (event.target.id === 'news-modal') {
+                closeNewsModal();
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeNewsModal();
+            }
+        });
+
+        // Tự động mở popup nếu URL có hậu tố: ?id=...&openPopup=true (hoặc #...)
+        function checkUrlForPopup() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const idParam = (urlParams.get('id') || urlParams.get('newsId') || urlParams.get('news') || '').toLowerCase().trim();
+            const hash = window.location.hash.replace('#', '').toLowerCase().trim();
+
+            const target = idParam || hash;
+            if (!target) return;
+
+            // 1. Kiểm tra trực tiếp theo đúng ID có trong DOM (ví dụ: ?id=news-detail-1)
+            if (document.getElementById(target)) {
+                openNewsModal(target, false);
+                return;
+            }
+
+            // 2. Kiểm tra theo số (ví dụ: ?id=1&openPopup=true -> tự tìm news-detail-1)
+            if (document.getElementById('news-detail-' + target)) {
+                openNewsModal('news-detail-' + target, false);
+                return;
+            }
+
+            // 3. Hỗ trợ thêm các từ khóa alias thân thiện
+            const policyAliases = ['policy', 'privacy', 'terms', 'chinh-sach', 'dieu-khoan', 'news-1', 'news-policy'];
+            const welcomeAliases = ['welcome', 'chao-mung', 'news-2', 'news-welcome'];
+
+            if (policyAliases.includes(target)) {
+                openNewsModal('news-detail-1', false);
+            } else if (welcomeAliases.includes(target)) {
+                openNewsModal('news-detail-2', false);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tự động kiểm tra URL để mở popup ngay khi trang tải xong
+            checkUrlForPopup();
+
+            // Lắng nghe nếu thay đổi hash hoặc popstate
+            window.addEventListener('hashchange', checkUrlForPopup);
+            window.addEventListener('popstate', checkUrlForPopup);
+
+            // Hỗ trợ phím Enter/Space cho người dùng bàn phím
+            document.querySelectorAll('.clickable-card').forEach(card => {
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        card.click();
+                    }
+                });
+            });
+        });
+    </script>
+
     <footer class="md3-footer">
         <p>&copy; 2026 QiWays. All rights reserved.</p>
+        <div style="margin-top: 8px; font-size: 0.9em;">
+            <a href="privacy.html" class="lang-vi" style="color: inherit; text-decoration: underline;">Chính sách bảo mật</a>
+            <a href="privacy.html" class="lang-en" style="color: inherit; text-decoration: underline;">Privacy Policy</a>
+            <span style="margin: 0 8px;">|</span>
+            <a href="terms.html" class="lang-vi" style="color: inherit; text-decoration: underline;">Điều khoản dịch vụ</a>
+            <a href="terms.html" class="lang-en" style="color: inherit; text-decoration: underline;">Terms of Service</a>
+        </div>
     </footer>
 </body>
 </html>
